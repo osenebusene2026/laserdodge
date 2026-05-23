@@ -727,6 +727,63 @@ section {
   box-shadow: 1px 1px 0 var(--shadow);
 }
 
+.world-mystery {
+  background: var(--bg);
+  border: 2px dashed var(--bg3);
+  --w-a: var(--ink-muted);
+  --w-a2: var(--bg3);
+  --w-ink: var(--ink-muted);
+}
+
+.world-mystery::before {
+  background: repeating-linear-gradient(
+    45deg,
+    transparent 0,
+    transparent 6px,
+    rgba(255, 255, 255, 0.03) 6px,
+    rgba(255, 255, 255, 0.03) 12px
+  );
+  opacity: 1;
+}
+
+.world-mystery .world-icon {
+  color: var(--bg3);
+  font-family: var(--font-pixel);
+  font-size: 1.4rem;
+}
+
+.world-mystery:hover {
+  transform: none;
+  box-shadow: 4px 4px 0 var(--shadow);
+  cursor: default;
+}
+
+.creature-mystery {
+  border: 2px dashed var(--bg3);
+  box-shadow: inset 0 0 0 2px var(--bg3), 4px 4px 0 var(--shadow);
+}
+
+.creature-mystery .rarity-tag {
+  background: var(--bg3);
+  color: var(--ink-muted);
+}
+
+.creature-mystery .creature-name,
+.creature-mystery .creature-cost {
+  color: var(--ink-muted);
+}
+
+.more-coming {
+  text-align: center;
+  font-family: var(--font-pixel);
+  font-size: 0.6rem;
+  letter-spacing: 2.5px;
+  color: var(--accent2);
+  margin-top: 36px;
+  opacity: 0.7;
+  text-shadow: 2px 2px 0 var(--shadow);
+}
+
 /* ==========================================================================
    CREATURES SECTION
    ========================================================================== */

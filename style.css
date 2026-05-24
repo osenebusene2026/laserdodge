@@ -29,7 +29,10 @@
 }
 
 html, body {
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse at top, rgba(255, 61, 240, 0.12) 0%, transparent 55%),
+    radial-gradient(ellipse at bottom, rgba(63, 255, 224, 0.07) 0%, transparent 60%);
   color: var(--ink);
   font-family: var(--font-mono);
   font-size: 18px;
@@ -45,52 +48,6 @@ img, svg {
 }
 
 a { color: inherit; text-decoration: none; }
-
-/* ==========================================================================
-   BACKGROUNDS & OVERLAYS
-   ========================================================================== */
-
-.stars-bg {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse at top, rgba(255, 61, 240, 0.12) 0%, transparent 55%),
-    radial-gradient(ellipse at bottom, rgba(63, 255, 224, 0.07) 0%, transparent 60%),
-    var(--bg);
-}
-
-.stars-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(1px 1px at 12% 18%, #fff 50%, transparent 100%),
-    radial-gradient(1px 1px at 38% 23%, #ffe5fb 50%, transparent 100%),
-    radial-gradient(2px 2px at 51% 81%, #3fffe0 50%, transparent 100%),
-    radial-gradient(1px 1px at 73% 73%, #fff 50%, transparent 100%),
-    radial-gradient(1px 1px at 82% 12%, #ff3df0 50%, transparent 100%),
-    radial-gradient(2px 2px at 45% 35%, #ffd23f 50%, transparent 100%);
-  background-size: 600px 600px;
-  background-repeat: repeat;
-  opacity: 0.7;
-}
-
-.crt-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  pointer-events: none;
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      transparent 0,
-      transparent 2px,
-      rgba(0, 0, 0, 0.12) 2px,
-      rgba(0, 0, 0, 0.12) 3px
-    );
-}
 
 /* ==========================================================================
    HEADER / NAV
@@ -174,12 +131,6 @@ nav {
   letter-spacing: 2.5px;
   margin-bottom: 28px;
   text-shadow: 2px 2px 0 var(--shadow);
-  animation: pulse 2.5s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
 }
 
 .hero-title {
@@ -247,13 +198,6 @@ nav {
   width: 130px;
   height: 130px;
   z-index: 2;
-  animation: bob 1.4s ease-in-out infinite;
-  will-change: transform;
-}
-
-@keyframes bob {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
 }
 
 .creature-shadow {
@@ -332,12 +276,6 @@ nav {
   height: 14px;
   background: var(--danger);
   box-shadow: 0 0 0 2px var(--shadow);
-  animation: ping 1.6s ease-in-out infinite;
-}
-
-@keyframes ping {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.3); opacity: 0.6; }
 }
 
 /* Hero chips */

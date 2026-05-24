@@ -56,44 +56,25 @@ a { color: inherit; text-decoration: none; }
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse at top, rgba(255, 61, 240, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at bottom, rgba(63, 255, 224, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at top, rgba(255, 61, 240, 0.12) 0%, transparent 55%),
+    radial-gradient(ellipse at bottom, rgba(63, 255, 224, 0.07) 0%, transparent 60%),
     var(--bg);
 }
 
-.stars-bg::before,
-.stars-bg::after {
+.stars-bg::before {
   content: '';
   position: absolute;
   inset: 0;
   background-image:
     radial-gradient(1px 1px at 12% 18%, #fff 50%, transparent 100%),
-    radial-gradient(1px 1px at 27% 67%, #fff 50%, transparent 100%),
     radial-gradient(1px 1px at 38% 23%, #ffe5fb 50%, transparent 100%),
     radial-gradient(2px 2px at 51% 81%, #3fffe0 50%, transparent 100%),
-    radial-gradient(1px 1px at 62% 42%, #fff 50%, transparent 100%),
     radial-gradient(1px 1px at 73% 73%, #fff 50%, transparent 100%),
     radial-gradient(1px 1px at 82% 12%, #ff3df0 50%, transparent 100%),
-    radial-gradient(1px 1px at 91% 55%, #fff 50%, transparent 100%),
-    radial-gradient(1px 1px at 7% 92%, #fff 50%, transparent 100%),
-    radial-gradient(2px 2px at 45% 35%, #ffd23f 50%, transparent 100%),
-    radial-gradient(1px 1px at 19% 47%, #fff 50%, transparent 100%),
-    radial-gradient(1px 1px at 88% 89%, #fff 50%, transparent 100%);
+    radial-gradient(2px 2px at 45% 35%, #ffd23f 50%, transparent 100%);
   background-size: 600px 600px;
   background-repeat: repeat;
-  opacity: 0.85;
-}
-
-.stars-bg::after {
-  background-size: 400px 400px;
-  background-position: 100px 200px;
-  opacity: 0.5;
-  animation: stars-drift 60s linear infinite;
-}
-
-@keyframes stars-drift {
-  from { background-position: 0 0; }
-  to { background-position: 400px 400px; }
+  opacity: 0.7;
 }
 
 .crt-overlay {
@@ -106,28 +87,9 @@ a { color: inherit; text-decoration: none; }
       to bottom,
       transparent 0,
       transparent 2px,
-      rgba(0, 0, 0, 0.18) 2px,
-      rgba(0, 0, 0, 0.18) 3px
-    ),
-    radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.55) 100%);
-  mix-blend-mode: multiply;
-}
-
-.crt-overlay::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    rgba(255, 61, 240, 0.02),
-    rgba(63, 255, 224, 0.02)
-  );
-  mix-blend-mode: screen;
-  animation: crt-flicker 4s steps(2) infinite;
-}
-
-@keyframes crt-flicker {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.92; }
+      rgba(0, 0, 0, 0.12) 2px,
+      rgba(0, 0, 0, 0.12) 3px
+    );
 }
 
 /* ==========================================================================
@@ -138,9 +100,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(10, 1, 24, 0.92);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: var(--bg);
   border-bottom: 2px solid var(--bg2);
   box-shadow: 0 4px 0 var(--shadow);
 }
@@ -244,12 +204,10 @@ nav {
 
 .title-line.accent {
   color: var(--accent);
-  filter: drop-shadow(0 0 16px rgba(255, 61, 240, 0.5));
 }
 
 .title-line.warn {
   color: var(--warn);
-  filter: drop-shadow(0 0 16px rgba(255, 210, 63, 0.5));
 }
 
 .hero-tagline {
@@ -278,17 +236,10 @@ nav {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 180px;
-  height: 180px;
-  background: radial-gradient(circle, var(--accent) 0%, transparent 60%);
-  opacity: 0.35;
-  filter: blur(8px);
-  animation: glow-pulse 2.4s ease-in-out infinite;
-}
-
-@keyframes glow-pulse {
-  0%, 100% { opacity: 0.25; transform: translate(-50%, -50%) scale(1); }
-  50% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.15); }
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle, rgba(255, 61, 240, 0.35) 0%, transparent 65%);
+  pointer-events: none;
 }
 
 .creature {
@@ -297,7 +248,7 @@ nav {
   height: 130px;
   z-index: 2;
   animation: bob 1.4s ease-in-out infinite;
-  filter: drop-shadow(4px 4px 0 var(--shadow));
+  will-change: transform;
 }
 
 @keyframes bob {
@@ -310,18 +261,11 @@ nav {
   bottom: 4px;
   left: 50%;
   transform: translateX(-50%);
-  width: 90px;
-  height: 8px;
+  width: 80px;
+  height: 6px;
   background: var(--shadow);
   border-radius: 50%;
-  opacity: 0.5;
-  filter: blur(3px);
-  animation: shadow-pulse 1.4s ease-in-out infinite;
-}
-
-@keyframes shadow-pulse {
-  0%, 100% { width: 90px; opacity: 0.5; }
-  50% { width: 75px; opacity: 0.7; }
+  opacity: 0.55;
 }
 
 /* Store buttons */
@@ -591,7 +535,7 @@ section {
   font-size: 3rem;
   line-height: 1;
   margin-bottom: 12px;
-  filter: drop-shadow(3px 3px 0 var(--shadow));
+  text-shadow: 3px 3px 0 var(--shadow);
 }
 
 .mode-endless .mode-icon { color: var(--accent); }
@@ -690,7 +634,7 @@ section {
   line-height: 1;
   margin-bottom: 12px;
   color: var(--w-a);
-  filter: drop-shadow(2px 2px 0 var(--shadow));
+  text-shadow: 2px 2px 0 var(--shadow);
   position: relative;
 }
 
@@ -822,13 +766,13 @@ section {
 .rarity-common { border: 2px solid var(--ink-muted); }
 
 .rarity-rare .rarity-tag { background: var(--accent2); }
-.rarity-rare { border: 2px solid var(--accent2); box-shadow: inset 0 0 0 2px var(--bg3), 4px 4px 0 var(--shadow), 0 0 20px rgba(63, 255, 224, 0.25); }
+.rarity-rare { border: 2px solid var(--accent2); }
 
 .rarity-epic .rarity-tag { background: var(--accent); color: var(--ink); }
-.rarity-epic { border: 2px solid var(--accent); box-shadow: inset 0 0 0 2px var(--bg3), 4px 4px 0 var(--shadow), 0 0 24px rgba(255, 61, 240, 0.3); }
+.rarity-epic { border: 2px solid var(--accent); }
 
 .rarity-legendary .rarity-tag { background: var(--warn); }
-.rarity-legendary { border: 2px solid var(--warn); box-shadow: inset 0 0 0 2px var(--bg3), 4px 4px 0 var(--shadow), 0 0 28px rgba(255, 210, 63, 0.35); }
+.rarity-legendary { border: 2px solid var(--warn); }
 
 .creature-art {
   width: 110px;
@@ -843,7 +787,6 @@ section {
 .creature-art svg {
   width: 100%;
   height: 100%;
-  filter: drop-shadow(2px 2px 0 var(--shadow));
 }
 
 .creature-name {

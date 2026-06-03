@@ -343,9 +343,8 @@ section {
 
 .rules-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  margin-bottom: 40px;
 }
 
 .rule-card {
@@ -390,32 +389,6 @@ section {
   letter-spacing: 0.5px;
   color: var(--ink);
   opacity: 0.9;
-}
-
-.pro-tip {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-  background: var(--warn);
-  color: var(--shadow);
-  padding: 16px 24px;
-  box-shadow: 4px 4px 0 var(--shadow);
-  margin: 0 auto;
-  max-width: 600px;
-}
-
-.tip-label {
-  font-family: var(--font-pixel);
-  font-size: 0.65rem;
-  letter-spacing: 1.5px;
-}
-
-.tip-text {
-  font-family: var(--font-pixel);
-  font-size: 0.6rem;
-  letter-spacing: 1.5px;
 }
 
 /* ==========================================================================
@@ -656,6 +629,10 @@ footer {
    RESPONSIVE
    ========================================================================== */
 
+@media (max-width: 960px) {
+  .rules-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 720px) {
   body { font-size: 16px; }
 
@@ -676,6 +653,7 @@ footer {
 }
 
 @media (max-width: 480px) {
+  .rules-grid { grid-template-columns: 1fr; }
   .title-line { text-shadow: 2px 2px 0 var(--shadow), 4px 4px 0 var(--bg2); }
   .creature-stage { width: 110px; height: 130px; }
   .creature { width: 100px; height: 100px; }

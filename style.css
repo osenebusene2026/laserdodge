@@ -337,17 +337,6 @@ section {
 .section-title .danger { color: var(--danger); }
 .section-title .cyan { color: var(--accent2); }
 
-.section-sub {
-  text-align: center;
-  font-family: var(--font-mono);
-  font-size: 1.1rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-  margin-top: -32px;
-  margin-bottom: 48px;
-}
-
 /* ==========================================================================
    RULES SECTION
    ========================================================================== */
@@ -369,29 +358,22 @@ section {
   border: 2px solid var(--accent);
 }
 
+.rule-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
 .rule-num {
   font-family: var(--font-pixel);
   font-size: 0.8rem;
-  color: var(--accent);
-  letter-spacing: 2px;
-  margin-bottom: 16px;
-}
-
-.rule-art {
-  width: 100%;
-  height: 80px;
-  background: var(--shadow);
-  margin-bottom: 16px;
-  padding: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid var(--bg3);
-}
-
-.rule-art svg {
-  width: 100%;
-  height: 100%;
+  color: var(--shadow);
+  background: var(--accent);
+  letter-spacing: 1px;
+  padding: 10px 12px;
+  flex-shrink: 0;
+  box-shadow: 2px 2px 0 var(--shadow);
 }
 
 .rule-card h3 {
@@ -399,7 +381,6 @@ section {
   font-size: 1rem;
   letter-spacing: 1.5px;
   color: var(--warn);
-  margin-bottom: 10px;
   text-shadow: 2px 2px 0 var(--shadow);
 }
 
@@ -435,312 +416,6 @@ section {
   font-family: var(--font-pixel);
   font-size: 0.6rem;
   letter-spacing: 1.5px;
-}
-
-/* ==========================================================================
-   MODES SECTION
-   ========================================================================== */
-
-.modes-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-.mode-card {
-  background: var(--bg2);
-  padding: 32px 24px;
-  text-align: center;
-  position: relative;
-  box-shadow:
-    inset 0 0 0 2px var(--bg3),
-    6px 6px 0 var(--shadow);
-  transition: transform 0.15s;
-}
-
-.mode-card:hover {
-  transform: translate(-2px, -2px);
-  box-shadow:
-    inset 0 0 0 2px var(--bg3),
-    8px 8px 0 var(--shadow);
-}
-
-.mode-endless { border: 3px solid var(--accent); }
-.mode-time { border: 3px solid var(--accent2); }
-.mode-hardcore { border: 3px solid var(--danger); }
-
-.mode-icon {
-  font-size: 3rem;
-  line-height: 1;
-  margin-bottom: 12px;
-  text-shadow: 3px 3px 0 var(--shadow);
-}
-
-.mode-endless .mode-icon { color: var(--accent); }
-.mode-time .mode-icon { color: var(--accent2); }
-.mode-hardcore .mode-icon { color: var(--danger); }
-
-.mode-name {
-  font-family: var(--font-pixel);
-  font-size: 1.05rem;
-  letter-spacing: 2px;
-  color: var(--ink);
-  margin-bottom: 6px;
-  text-shadow: 2px 2px 0 var(--shadow);
-}
-
-.mode-sub {
-  font-family: var(--font-pixel);
-  font-size: 0.55rem;
-  letter-spacing: 2.5px;
-  color: var(--ink-muted);
-  margin-bottom: 16px;
-}
-
-.mode-rule {
-  font-family: var(--font-mono);
-  font-size: 1.05rem;
-  letter-spacing: 0.5px;
-  color: var(--ink);
-  opacity: 0.85;
-  margin-bottom: 20px;
-  min-height: 56px;
-}
-
-.mode-meta {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.meta-chip {
-  font-family: var(--font-pixel);
-  font-size: 0.55rem;
-  letter-spacing: 1.5px;
-  background: var(--bg);
-  color: var(--warn);
-  padding: 6px 10px;
-  box-shadow: 2px 2px 0 var(--shadow);
-}
-
-.danger-chip {
-  background: var(--danger);
-  color: var(--ink);
-}
-
-/* ==========================================================================
-   WORLDS SECTION
-   ========================================================================== */
-
-.worlds-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 16px;
-}
-
-.world-tile {
-  background: var(--w-bg);
-  padding: 22px 18px;
-  text-align: center;
-  border: 2px solid var(--w-a, var(--accent));
-  box-shadow: 4px 4px 0 var(--shadow);
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.15s;
-  --w-ink: var(--ink);
-}
-
-.world-tile:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 var(--shadow);
-}
-
-.world-tile::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at top right, var(--w-a) 0%, transparent 50%);
-  opacity: 0.18;
-  pointer-events: none;
-}
-
-.world-icon {
-  font-size: 2rem;
-  line-height: 1;
-  margin-bottom: 12px;
-  color: var(--w-a);
-  text-shadow: 2px 2px 0 var(--shadow);
-  position: relative;
-}
-
-.world-name {
-  font-family: var(--font-pixel);
-  font-size: 0.7rem;
-  letter-spacing: 1.5px;
-  color: var(--w-ink);
-  margin-bottom: 4px;
-  position: relative;
-  text-shadow: 2px 2px 0 var(--shadow);
-}
-
-.world-sub {
-  font-family: var(--font-pixel);
-  font-size: 0.5rem;
-  letter-spacing: 2px;
-  color: var(--w-a2, var(--accent2));
-  margin-bottom: 14px;
-  position: relative;
-}
-
-.world-swatch {
-  display: flex;
-  gap: 4px;
-  justify-content: center;
-  position: relative;
-}
-
-.world-swatch span {
-  width: 12px;
-  height: 12px;
-  display: inline-block;
-  box-shadow: 1px 1px 0 var(--shadow);
-}
-
-.world-mystery {
-  background: var(--bg);
-  border: 2px dashed var(--bg3);
-  --w-a: var(--ink-muted);
-  --w-a2: var(--bg3);
-  --w-ink: var(--ink-muted);
-}
-
-.world-mystery::before {
-  background: repeating-linear-gradient(
-    45deg,
-    transparent 0,
-    transparent 6px,
-    rgba(255, 255, 255, 0.03) 6px,
-    rgba(255, 255, 255, 0.03) 12px
-  );
-  opacity: 1;
-}
-
-.world-mystery .world-icon {
-  color: var(--bg3);
-  font-family: var(--font-pixel);
-  font-size: 1.4rem;
-}
-
-.world-mystery:hover {
-  transform: none;
-  box-shadow: 4px 4px 0 var(--shadow);
-  cursor: default;
-}
-
-.creature-mystery {
-  border: 2px dashed var(--bg3);
-  box-shadow: inset 0 0 0 2px var(--bg3), 4px 4px 0 var(--shadow);
-}
-
-.creature-mystery .rarity-tag {
-  background: var(--bg3);
-  color: var(--ink-muted);
-}
-
-.creature-mystery .creature-name,
-.creature-mystery .creature-cost {
-  color: var(--ink-muted);
-}
-
-.more-coming {
-  text-align: center;
-  font-family: var(--font-pixel);
-  font-size: 0.6rem;
-  letter-spacing: 2.5px;
-  color: var(--accent2);
-  margin-top: 36px;
-  opacity: 0.7;
-  text-shadow: 2px 2px 0 var(--shadow);
-}
-
-/* ==========================================================================
-   CREATURES SECTION
-   ========================================================================== */
-
-.creatures-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-.creature-card {
-  background: var(--bg2);
-  padding: 24px 20px;
-  text-align: center;
-  position: relative;
-  box-shadow:
-    inset 0 0 0 2px var(--bg3),
-    4px 4px 0 var(--shadow);
-}
-
-.rarity-tag {
-  position: absolute;
-  top: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--font-pixel);
-  font-size: 0.5rem;
-  letter-spacing: 2px;
-  padding: 4px 10px;
-  box-shadow: 2px 2px 0 var(--shadow);
-  color: var(--shadow);
-  white-space: nowrap;
-}
-
-.rarity-common .rarity-tag { background: var(--ink); }
-.rarity-common { border: 2px solid var(--ink-muted); }
-
-.rarity-rare .rarity-tag { background: var(--accent2); }
-.rarity-rare { border: 2px solid var(--accent2); }
-
-.rarity-epic .rarity-tag { background: var(--accent); color: var(--ink); }
-.rarity-epic { border: 2px solid var(--accent); }
-
-.rarity-legendary .rarity-tag { background: var(--warn); }
-.rarity-legendary { border: 2px solid var(--warn); }
-
-.creature-art {
-  width: 110px;
-  height: 110px;
-  margin: 12px auto 18px;
-  background: var(--bg);
-  padding: 10px;
-  border: 2px solid var(--bg3);
-  box-shadow: inset 0 0 0 1px var(--shadow);
-}
-
-.creature-art svg {
-  width: 100%;
-  height: 100%;
-}
-
-.creature-name {
-  font-family: var(--font-pixel);
-  font-size: 0.85rem;
-  letter-spacing: 1.5px;
-  color: var(--ink);
-  margin-bottom: 8px;
-  text-shadow: 2px 2px 0 var(--shadow);
-}
-
-.creature-cost {
-  font-family: var(--font-pixel);
-  font-size: 0.6rem;
-  letter-spacing: 1.5px;
-  color: var(--warn);
 }
 
 /* ==========================================================================
